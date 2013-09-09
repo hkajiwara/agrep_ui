@@ -1,0 +1,8 @@
+!!!
+%html
+	%body
+		%a{:href => "/"} Search top
+		%p
+		- @result.each do |record|
+			.content
+				#{record.Id} #{record.Name}

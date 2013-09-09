@@ -1,0 +1,19 @@
+%html
+	%body
+		%form{:action => "/login", :method => "post"}
+			Username:
+			%input{:name => "username", :size => "40"}
+			%br
+			Password: 
+			%input{:name => "password", :size => "40", :type => "password"}
+			%br
+			Host: 
+			%input{:name => "host", :size => "40"}
+			%br
+			Client Id: 
+			%input{:name => "client_id", :size => "120"}
+			%br
+			Client secret: 
+			%input{:name => "client_secret", :size => "40"}
+			%br
+			%input{:type => "submit", :value => "submit"}

@@ -1,0 +1,11 @@
+%html
+	%body
+		%a{:href => "/logout"} Logout
+		%p
+		%form{:action => "/search", :method => "post"}
+			%select{:name => "component_type"}
+				%option{:value => "ApexClass" } Apex
+				%option{:value => "ApexTrigger"} Trigger
+				%option{:value => "ApexPage"} Visualforce 
+				%option{:value => "ApexComponent"} Component 
+			%input{:type => "submit", :value => "submit"}
