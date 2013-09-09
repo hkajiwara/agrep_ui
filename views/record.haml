@@ -1,7 +1,0 @@
-!!!
-%html
-	%body
-		%a{:href => "/sobject/#{params[:type]}"} #{params[:type]}
-		- @record.class.attributes.each do |attr|
-			.content
-				#{@sobject.label_for(attr)} : #{@record.send(attr)}
