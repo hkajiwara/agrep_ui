@@ -3,6 +3,6 @@
 	%body
 		%a{:href => "/"} Search top
 		%p
-		- @result.each do |record|
-			.content
-				#{record.Id} #{record.Name}
+		%form{:action => "/result", :method => "post"}
+			%input{:name => "keyword", :size => "60"}
+			%input{:type => "submit", :value => "search"}
