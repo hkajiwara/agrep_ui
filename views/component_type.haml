@@ -2,7 +2,7 @@
 	%body
 		%a{:href => "/logout"} Logout
 		%p
-		%form{:action => "/search", :method => "post"}
+		%form{:action => "/search", :method => "get"}
 			%select{:name => "component_type"}
 				%option{:value => "ApexClass" } Apex
 				%option{:value => "ApexTrigger"} Trigger

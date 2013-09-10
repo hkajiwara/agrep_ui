@@ -1,8 +1,8 @@
 !!!
 %html
 	%body
-		%a{:href => "/"} Search top
+		%a{:href => "/"} Top
 		%p
-		%form{:action => "/result", :method => "post"}
+		%form{:action => "/result", :method => "get"}
 			%input{:name => "keyword", :size => "60"}
 			%input{:type => "submit", :value => "search"}

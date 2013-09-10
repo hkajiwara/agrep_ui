@@ -33,7 +33,7 @@ get "/logout" do
 end
 
 # Retrieve
-post "/search" do
+get "/search" do
 	settings.selected_component = params[:component_type]
 	case settings.selected_component
 		when 'ApexClass'
@@ -58,18 +58,20 @@ post "/search" do
 end
 
 # Search
-post "/result" do
+get "/result" do
+	@component_type = settings.selected_component
+	@results = []
 	reg = Regexp.compile(params[:keyword])
 	if settings.selected_component == 'ApexClass' || settings.selected_component == 'ApexTrigger'
 		settings.records.each do |record|
 			if reg =~ record.Body
-				p record.class
+				@results.push record
 			end
 		end
 	else
 		settings.records.each do |record|
 			if reg =~ record.Markup
-				p record.Name
+				@results.push record
 			end
 		end
 	end
