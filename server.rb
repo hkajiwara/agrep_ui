@@ -37,13 +37,13 @@ get "/search" do
 	settings.selected_component = params[:component_type]
 	case settings.selected_component
 		when 'ApexClass'
-			query = 'SELECT ID, Name, Body FROM ApexClass'
+			query = 'SELECT ID, Name, CreatedDate, LastModifiedDate, ApiVersion, Body FROM ApexClass'
 		when 'ApexTrigger'
-			query = 'SELECT ID, Name, Body FROM ApexTrigger'
+			query = 'SELECT ID, Name, CreatedDate, LastModifiedDate, ApiVersion, Body FROM ApexTrigger'
 		when 'ApexPage'
-			query = 'SELECT ID, Name, Markup FROM ApexPage'
+			query = 'SELECT ID, Name, CreatedDate, LastModifiedDate, ApiVersion, Markup FROM ApexPage'
 		when 'ApexComponent'
-			query = 'SELECT ID, Name, Markup FROM ApexComponent'
+			query = 'SELECT ID, Name, CreatedDate, LastModifiedDate, ApiVersion, Markup FROM ApexComponent'
 		else
 	end
 
@@ -59,6 +59,7 @@ end
 
 # Search
 get "/result" do
+	@instance_url = session[:client].instance_url
 	@component_type = settings.selected_component
 	@results = []
 	reg = Regexp.compile(params[:keyword])

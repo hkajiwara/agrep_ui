@@ -1,0 +1,36 @@
+!!!
+%html
+	%head
+		%title AGREP
+		%link(rel='stylesheet' href='css/bootstrap.min.css')
+		%link(rel='stylesheet' href='css/bootstrap-responsive.min.css')
+	%body
+		.container-fluid
+			.navbar.navbar-inverse
+				.navbar-inner
+					.container
+						%a.btn.btn-navbar
+							%span.icon-bar
+							%span.icon-bar
+							%span.icon-bar
+						%a.brand{:href => '/'}
+							AGREP
+						.nav-collapse.collapse
+							%ul.nav
+								%li
+									%a{:href => '/'}
+										Top
+								- if @component_type
+									%li
+										%a{:href => "/search?component_type=#{@component_type}"}
+											#{@component_type}
+								- else
+									%li
+								%li
+									%a{:href => '/logout'}
+										Logout
+
+			%body
+				!= yield
+
+		%script{:src => 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'}

@@ -1,17 +1,19 @@
-%html
-	%body
-		%a{:href => "/"} Top
-		%p
-		%a{:href => "/search?component_type=#{@component_type}"} #{@component_type}
-		%p
-		%a{:href => "/logout"} Logout
-		%p
-		%table
-			%tbody
-				%tr
-					%th Id
-					%th Name
-				- @results.each do |result|
-					%tr
-						%td #{result.Id}
-						%td #{result.Name}
+%table.table.table-striped
+	%thead
+		%tr
+			%th Name
+			%th CreatedDate
+			%th LastModifiedDate
+			%th ApiVersion
+	%tbody
+		- @results.each do |result|
+			%tr
+				%td
+					%a{:href => "#{@instance_url}/#{result.Id}"}
+						#{result.Name}
+				%td
+					#{result.CreatedDate}
+				%td
+					#{result.LastModifiedDate}
+				%td
+					#{result.ApiVersion}

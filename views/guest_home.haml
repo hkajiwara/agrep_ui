@@ -1,19 +1,26 @@
-%html
-	%body
-		%form{:action => "/login", :method => "post"}
-			Username:
-			%input{:name => "username", :size => "40"}
-			%br
-			Password: 
-			%input{:name => "password", :size => "40", :type => "password"}
-			%br
-			Host: 
-			%input{:name => "host", :size => "40"}
-			%br
-			Client Id: 
-			%input{:name => "client_id", :size => "120"}
-			%br
-			Client secret: 
-			%input{:name => "client_secret", :size => "40"}
-			%br
-			%input{:type => "submit", :value => "login"}
+%form.form-horizontal{:action => "/login", :method => "post"}
+	.control-group
+		%label.control-label{for: "focusedInput" } Host
+		.controls
+			%select{:name => "host"}
+				%option{:value => "login.salesforce.com"} Production
+				%option{:value => "test.salesforce.com"} Sandbox
+	.control-group
+		%label.control-label{for: "inputEmail"} Username
+		.controls
+			%input#inputEmail{name: "username", placeholder: "Username", type: "text"}/
+	.control-group
+		%label.control-label{for: "inputPassword"} Password
+		.controls
+			%input#inputPassword{name: "password", placeholder: "Password", type: "password"}/
+	.control-group
+		%label.control-label{for: "focusedInput"} Client Id
+		.controls
+			%input#inputPassword{name: "client_id", placeholder: "Client Id", type: "text"}/
+	.control-group
+		%label.control-label{for: "focusedInput"} Client Secret
+		.controls
+			%input#inputPassword{name: "client_secret", placeholder: "Client Secret", type: "text"}/
+	.control-group
+		.controls
+			%button.btn{type: "submit"} Sign in

@@ -1,11 +1,7 @@
-%html
-	%body
-		%a{:href => "/logout"} Logout
-		%p
-		%form{:action => "/search", :method => "get"}
-			%select{:name => "component_type"}
-				%option{:value => "ApexClass" } Apex
-				%option{:value => "ApexTrigger"} Trigger
-				%option{:value => "ApexPage"} Visualforce 
-				%option{:value => "ApexComponent"} Component 
-			%input{:type => "submit", :value => "select"}
+%form.form-search{:action => "/search", :method => "get"}
+	%select{:name => "component_type"}
+		%option{:value => "ApexClass" } Apex
+		%option{:value => "ApexTrigger"} Trigger
+		%option{:value => "ApexPage"} Visualforce 
+		%option{:value => "ApexComponent"} Component 
+	%button.btn{value: "search", type: "submit"} Select 
